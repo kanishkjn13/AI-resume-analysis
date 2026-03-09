@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Vision AI | AI Resume Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Resume Vision AI Logo" class="logo-img"> Resume Vision AI
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#upload">Upload</a></li>
+                </ul>
+                <div class="nav-auth" id="nav-auth-buttons">
+                    <button class="btn btn-outline nav-login-btn" id="nav-login-btn">Log In</button>
+                    <button class="btn btn-primary nav-signup-btn" id="nav-signup-btn">Sign Up</button>
+                </div>
+                <!-- Logged In State (Hidden initially) -->
+                <div class="auth-user-profile hidden" id="nav-user-profile">
+                    <span class="user-greeting">Hi, <strong id="current-user-name">User</strong></span>
+                    <button class="btn btn-outline nav-logout-btn" id="nav-logout-btn">Log Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-container">
+            <div class="hero-content gravity-item" id="hero-heading-container">
+                <h1 class="hero-title gravity-item">Upgrade Your Resume with AI</h1>
+                <p class="hero-tagline gravity-item">Instant feedback. Smart suggestions. Beat ATS systems.</p>
+                <div class="hero-buttons gravity-item" id="hero-buttons">
+                    <a href="#upload" class="btn btn-primary glowing-btn gravity-item" id="btn-analyze">Upload
+                        Resume</a>
+                    <a href="#" class="btn btn-outline gravity-item" id="btn-demo">Try Demo</a>
+                </div>
+
+                <div class="hero-trust-badges gravity-item">
+                    <p>Trusted by candidates hired at</p>
+                    <div class="trust-logos">
+                        <i class="fa-brands fa-google"></i>
+                        <i class="fa-brands fa-microsoft"></i>
+                        <i class="fa-brands fa-amazon"></i>
+                        <i class="fa-brands fa-meta"></i>
+                    </div>
+                </div>
+
+                <div class="hero-quick-stats gravity-item">
+                    <div class="stat-item">
+                        <i class="fa-solid fa-bolt text-accent"></i> <span><strong>10x</strong> Faster Editing</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-check-double text-green"></i> <span><strong>98%</strong> ATS
+                            Success</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image gravity-item">
+                <img src="assets/hero.png" alt="AI Resume Analysis" id="hero-img">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Powerful Features</h2>
+        <div class="features-grid">
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Resume Scoring</h3>
+                <p>Get an instant ATS compatibility score based on industry standards.</p>
+            </div>
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Job Match Score</h3>
+                <p>Compare your resume against specific job descriptions for a match rate.</p>
+            </div>
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3>Skill Suggestions</h3>
+                <p>Discover missing skills that can make your profile stand out.</p>
+            </div>
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <h3>Resume Rewriter</h3>
+                <p>Enhance bullet points using our AI rewriting tool for maximum impact.</p>
+            </div>
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <h3>Job Recommendations</h3>
+                <p>Receive tailored job suggestions that fit your unique profile.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="how-it-works-grid">
+            <div class="steps-container">
+                <div class="step gravity-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Upload Resume</h3>
+                        <p>Securely upload your resume in PDF or Word format.</p>
+                    </div>
+                </div>
+                <div class="step gravity-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Analyzes</h3>
+                        <p>Our context-aware AI scans and evaluates your experience.</p>
+                    </div>
+                </div>
+                <div class="step gravity-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Insights</h3>
+                        <p>Receive actionable feedback and improve your chances.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="how-it-works-visual ai-scanner-wrapper">
+                <div class="ai-scanner-card" id="ai-scanner-card">
+                    <div class="scanner-header">
+                        <div class="scanner-dot red"></div>
+                        <div class="scanner-dot yellow"></div>
+                        <div class="scanner-dot green"></div>
+                        <span>Resume_Analysis.pdf</span>
+                    </div>
+                    <div class="scanner-body">
+                        <div class="resume-line title"></div>
+                        <div class="resume-line"></div>
+                        <div class="resume-line"></div>
+                        <div class="resume-line short keyword-container"><span class="keyword" data-delay="1000">Machine
+                                Learning</span></div>
+                        <br>
+                        <div class="resume-line subtitle"></div>
+                        <div class="resume-line keyword-container"><span class="keyword"
+                                data-delay="2000">React.js</span> <span class="keyword" data-delay="2500">Node.js</span>
+                        </div>
+                        <div class="resume-line"></div>
+                        <div class="resume-line short"></div>
+                    </div>
+                    <div class="scanner-line" id="scanner-line"></div>
+                    <div class="scanner-overlay">
+                        <div class="scan-status">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span id="scan-text">AI Scanning...</span>
+                        </div>
+                        <div class="scan-score-circle">
+                            <span id="scan-score">0</span><span class="score-max">/100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Resume Section -->
+    <section class="upload-section" id="upload">
+        <h2 class="section-title">Ready to level up?</h2>
+        <div class="upload-container gravity-item" id="upload-box">
+            <div class="upload-content">
+                <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                <h3 id="upload-text">Drag & Drop your resume here</h3>
+                <p>Supported formats: PDF, DOCX (Max 5MB)</p>
+                <button class="btn btn-outline" style="pointer-events: none;">Browse Files</button>
+            </div>
+            <input type="file" id="file-input" class="file-input" accept=".pdf,.doc,.docx">
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+
+            <!-- Login Form -->
+            <div class="auth-form" id="login-form">
+                <h2>Welcome Back</h2>
+                <p class="auth-subtitle">Login to access your personalized insights.</p>
+                <form onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="login-password">Password</label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary auth-btn">Login</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="auth-form hidden" id="signup-form">
+                <h2>Create Account</h2>
+                <p class="auth-subtitle">Join Resume Vision AI to supercharge your career.</p>
+                <form onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <input type="password" id="signup-confirm" placeholder="Confirm your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary auth-btn">Sign Up</button>
+                </form>
+                <p class="auth-switch">Already have an account? <a href="#" id="switch-to-login">Log in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 HireLens AI. All rights reserved.</p>
+    </footer>
+
+    <!-- Matter.js for Gravity Physics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <!-- VanillaTilt.js for 3D Interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHwe00RQm583OTH+8KqH823tSbjEM92xTf/Z4/8v23T7R/1V/j/Xj1vXb2sspE4mI+gq2xmA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
