@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Roadmaps | Resume Vision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="roadmap.css">
+</head>
+<body>
+    <nav class="roadmap-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+            <div class="nav-right">
+                <a href="https://roadmap.sh" target="_blank" class="external-link">Visit roadmap.sh <i class="fa-solid fa-external-link"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="roadmap-main">
+        <header class="roadmap-header">
+            <h1 id="roadmap-title">Frontend Developer</h1>
+            <p id="roadmap-desc">Step by step guide to becoming a modern frontend developer in 2024</p>
+            
+            <div class="roadmap-tabs">
+                <button class="tab-btn active" data-roadmap="frontend">Frontend</button>
+                <button class="tab-btn" data-roadmap="backend">Backend</button>
+                <button class="tab-btn" data-roadmap="ai-ml">AI / ML</button>
+            </div>
+
+            <div class="header-actions">
+                <div class="roadmap-badges">
+                    <span class="badge yellow">Beginner</span>
+                    <span class="badge blue">Intermediate</span>
+                    <span class="badge purple">Advanced</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="roadmap-container">
+            <!-- Frontend Roadmap -->
+            <div id="frontend-roadmap" class="roadmap-content active">
+                <div class="roadmap-section">
+                    <div class="node yellow-node start-node">INTERNET</div>
+                    <div class="connector-vertical"></div>
+                    <div class="node-group">
+                        <div class="node yellow-node">HTML</div>
+                        <div class="node yellow-node">CSS</div>
+                        <div class="node yellow-node">JavaScript</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node-group">
+                        <div class="node purple-node">Version Control Systems</div>
+                        <div class="sub-nodes"><div class="node mini-node">Git</div></div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node-group">
+                        <div class="node blue-node">Web Security</div>
+                        <div class="sub-nodes">
+                            <div class="node mini-node">HTTPS</div>
+                            <div class="node mini-node">CORS</div>
+                        </div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node yellow-node">Package Managers</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">npm</div>
+                        <div class="node mini-node">yarn</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node blue-node">Choose a Framework</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node highlight">React</div>
+                        <div class="node mini-node">Vue.js</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend Roadmap -->
+            <div id="backend-roadmap" class="roadmap-content">
+                <div class="roadmap-section">
+                    <div class="node yellow-node start-node">Pick a Language</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node highlight">Python</div>
+                        <div class="node mini-node">Java</div>
+                        <div class="node mini-node">Go</div>
+                        <div class="node mini-node">Node.js</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node purple-node">Relational Databases</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">PostgreSQL</div>
+                        <div class="node mini-node">MySQL</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node blue-node">APIs</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">REST</div>
+                        <div class="node mini-node">JSON APIs</div>
+                        <div class="node mini-node">GraphQL</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node yellow-node">Authentication</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">JWT</div>
+                        <div class="node mini-node">OAuth</div>
+                        <div class="node mini-node">SSO</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node purple-node">Caching</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">Redis</div>
+                        <div class="node mini-node">Memcached</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node blue-node">Architecture</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">Monoliths</div>
+                        <div class="node mini-node">Microservices</div>
+                        <div class="node mini-node">Serverless</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI / ML Roadmap -->
+            <div id="ai-ml-roadmap" class="roadmap-content">
+                <div class="roadmap-section">
+                    <div class="node yellow-node start-node">Mathematics</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">Linear Algebra</div>
+                        <div class="node mini-node">Calculus</div>
+                        <div class="node mini-node">Statistics</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node yellow-node">Python for Data</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">NumPy</div>
+                        <div class="node mini-node">Pandas</div>
+                        <div class="node mini-node">Matplotlib</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node purple-node">Data Handling</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">Cleaning</div>
+                        <div class="node mini-node">Feature Engineering</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node blue-node">Machine Learning</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">Supervised</div>
+                        <div class="node mini-node">Unsupervised</div>
+                        <div class="node mini-node">Reinforcement</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node yellow-node">Deep Learning</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node">Neural Networks</div>
+                        <div class="node mini-node">CNNs</div>
+                        <div class="node mini-node">RNNs</div>
+                    </div>
+                    <div class="connector-vertical"></div>
+                    <div class="node purple-node">Modern AI</div>
+                    <div class="sub-nodes">
+                        <div class="node mini-node highlight">Transformers</div>
+                        <div class="node mini-node">Large Language Models</div>
+                        <div class="node mini-node">Diffusion Models</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="other-roadmaps">
+            <h3>Explore other roadmaps</h3>
+            <div class="roadmaps-grid">
+                <div class="roadmap-card">Backend</div>
+                <div class="roadmap-card">DevOps</div>
+                <div class="roadmap-card">Full Stack</div>
+                <div class="roadmap-card">Mobile</div>
+                <div class="roadmap-card">AI / ML</div>
+                <div class="roadmap-card">Cyber Security</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Inspired by <a href="https://roadmap.sh">roadmap.sh</a>. This page is a part of Resume Vision AI career tracking suite.</p>
+    </footer>
+
+    <script>
+        // Tab switching logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const roadmapContents = document.querySelectorAll('.roadmap-content');
+        const roadmapTitle = document.getElementById('roadmap-title');
+        const roadmapDesc = document.getElementById('roadmap-desc');
+
+        const descriptions = {
+            'frontend': 'Step by step guide to becoming a modern frontend developer in 2024',
+            'backend': 'Step by step guide to becoming a modern backend developer in 2024',
+            'ai-ml': 'Comprehensive guide to mastering Artificial Intelligence and Machine Learning'
+        };
+
+        const titles = {
+            'frontend': 'Frontend Developer',
+            'backend': 'Backend Developer',
+            'ai-ml': 'AI / Machine Learning'
+        };
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-roadmap');
+                
+                // Update buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update content
+                roadmapContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `${target}-roadmap`) {
+                        content.classList.add('active');
+                    }
+                });
+
+                // Update text
+                roadmapTitle.innerText = titles[target];
+                roadmapDesc.innerText = descriptions[target];
+                
+                // Scroll to top of roadmap
+                window.scrollTo({ top: 300, behavior: 'smooth' });
+            });
+        });
+
+        // Event delegation for clickable nodes (including future ones)
+        document.querySelector('.roadmap-container').addEventListener('click', (e) => {
+            const node = e.target.closest('.node');
+            if (!node) return;
+
+            node.classList.toggle('completed');
+            if (node.classList.contains('completed')) {
+                if (!node.querySelector('.fa-circle-check')) {
+                    node.innerHTML += ' <i class="fa-solid fa-circle-check" style="color:#27c93f; margin-left: 8px;"></i>';
+                }
+            } else {
+                const icon = node.querySelector('.fa-circle-check');
+                if (icon) icon.remove();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Results | Resume Vision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="results.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Page Header -->
+        <header class="results-header">
+            <h1>Resume Analysis Results</h1>
+        </header>
+
+        <!-- Stats Dashboard Banner -->
+        <section class="stats-banner">
+            <!-- ATS Compatibility -->
+            <div class="stat-card">
+                <h3>ATS Compatibility</h3>
+                <div class="badge-passed">
+                    <i class="fa-solid fa-circle-check"></i> Passed
+                </div>
+                <div style="margin-top: 10px; font-size: 0.7rem; color: #3b82f6; display: flex; align-items: center; gap: 4px; cursor: pointer;">
+                    <i class="fa-solid fa-file-pdf"></i> PDF <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <!-- Keywords -->
+            <div class="stat-card">
+                <h3>Keywords</h3>
+                <div class="stat-missing">
+                    5 <span>Missing</span>
+                </div>
+            </div>
+
+            <!-- Resume Score Dial -->
+            <div class="score-container">
+                <div class="score-dial">
+                    <span class="score-label">Resume Score</span>
+                    <span class="score-number">78</span>
+                    <span class="score-total">/ 100</span>
+                </div>
+            </div>
+
+            <!-- Formatting -->
+            <div class="stat-card">
+                <h3>Formatting</h3>
+                <div class="stat-value">Needs Improvement</div>
+            </div>
+
+            <!-- Skills Gap -->
+            <div class="stat-card">
+                <h3>Skills Gap</h3>
+                <div class="stat-value" style="display: flex; align-items: center; gap: 8px;">
+                    <span style="background: #1e3a8a; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">3</span>
+                    Skills Lacking
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Suggestions Section -->
+        <section class="suggestions-section">
+            <div class="section-header">
+                <h2>AI Suggestions to Improve Your Resume</h2>
+            </div>
+            <div class="suggestions-grid">
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>Add measurable achievements</p>
+                </div>
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>Improve action verbs</p>
+                </div>
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>Add more technical skills</p>
+                </div>
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>Reduce long paragraphs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison-section">
+            <div class="section-header">
+                <h2>Your Resume vs. AI Recommendations</h2>
+            </div>
+            <div class="comparison-container">
+                <div class="comparison-header">
+                    <div class="header-col">Original Resume</div>
+                    <div class="header-col">AI Suggestions</div>
+                </div>
+                <div class="comparison-body">
+                    <div class="original-side">
+                        <div class="resume-mock-lines">
+                            <div class="line-dot"><div class="dot"></div><div class="line line-med"></div></div>
+                            <div class="line-dot"><div class="dot"></div><div class="line line-long"></div></div>
+                            <div style="margin-left: 1.5rem;"><div class="line line-short"></div></div>
+                            <br>
+                            <div class="line-dot"><div class="dot"></div><div class="line line-long"></div></div>
+                            <div class="line-dot"><div class="dot"></div><div class="line line-med"></div></div>
+                            <br>
+                            <div class="line-dot"><div class="dot"></div><div class="line line-med"></div></div>
+                            <div class="line-dot"><div class="dot"></div><div class="line line-short"></div></div>
+                        </div>
+                    </div>
+                    <div class="ai-side">
+                        <div class="ai-checklist">
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Increased sales by 30%</span>
+                                    <span class="pill-tag"><i class="fa-solid fa-equals"></i> =</span>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Implemented efficient workflows</span>
+                                    <span class="pill-tag" style="background: #fef3c7;">Improve <i class="fa-solid fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Proficient in Python & SQL</span>
+                                    <span class="pill-tag" style="background: #fef3c7;">Skill <i class="fa-solid fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Reduce long paragraphs</span>
+                                    <span class="pill-tag"><i class="fa-solid fa-equals"></i> =</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Banner CTA -->
+                <div class="cta-banner">
+                    <h2>Turn Your Resume Into an Interview Magnet</h2>
+                    <a href="#" class="btn-full" id="get-full-report">Get Full Report</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        // Simple entry animation for cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.stat-card, .suggestion-card, .comparison-container');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>

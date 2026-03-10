@@ -28,6 +28,7 @@
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
                     <li><a href="#upload">Upload</a></li>
                 </ul>
                 <div class="nav-auth" id="nav-auth-buttons">
@@ -53,6 +54,7 @@
                 <div class="hero-buttons gravity-item" id="hero-buttons">
                     <a href="#upload" class="btn btn-primary glowing-btn gravity-item" id="btn-analyze">Upload
                         Resume</a>
+                    <a href="roadmap.html" class="btn btn-secondary gravity-item" id="btn-roadmap">View Roadmap</a>
                     <a href="#" class="btn btn-outline gravity-item" id="btn-demo">Try Demo</a>
                 </div>
 
@@ -85,32 +87,37 @@
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="section-title">Powerful Features</h2>
+        <h2 class="section-title">Main Features</h2>
         <div class="features-grid">
             <div class="feature-card gravity-item">
-                <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>Resume Scoring</h3>
-                <p>Get an instant ATS compatibility score based on industry standards.</p>
-            </div>
-            <div class="feature-card gravity-item">
-                <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
-                <h3>Job Match Score</h3>
-                <p>Compare your resume against specific job descriptions for a match rate.</p>
-            </div>
-            <div class="feature-card gravity-item">
-                <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                <h3>Skill Suggestions</h3>
-                <p>Discover missing skills that can make your profile stand out.</p>
+                <div class="feature-icon"><i class="fa-solid fa-file-lines"></i></div>
+                <h3>Ideal Format</h3>
+                <p>Ensure your resume follows the perfect structure for both human and AI recruiters.</p>
             </div>
             <div class="feature-card gravity-item">
                 <div class="feature-icon"><i class="fa-solid fa-pen-nib"></i></div>
                 <h3>Resume Rewriter</h3>
-                <p>Enhance bullet points using our AI rewriting tool for maximum impact.</p>
+                <p>Automatically enhance your bullet points with AI-powered suggestions for maximum impact.</p>
+            </div>
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-route"></i></div>
+                <h3>Career Roadmap</h3>
+                <p>Visualize your career path with personalized skill sets and targeted learning paths.</p>
+            </div>
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                <h3>Fault Detection</h3>
+                <p>Identify and fix common resume errors, formatting issues, and keyword gaps instantly.</p>
             </div>
             <div class="feature-card gravity-item">
                 <div class="feature-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <h3>Job Recommendations</h3>
-                <p>Receive tailored job suggestions that fit your unique profile.</p>
+                <h3>Job & Internship Recommendations</h3>
+                <p>Get tailored job and internship suggestions that fit your unique profile and skills.</p>
+            </div>
+            <div class="feature-card gravity-item">
+                <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Job Match Score</h3>
+                <p>Compare your resume against specific job descriptions to see how well you match.</p>
             </div>
         </div>
     </section>
@@ -184,15 +191,41 @@
     <section class="upload-section" id="upload">
         <h2 class="section-title">Ready to level up?</h2>
         <div class="upload-container gravity-item" id="upload-box">
-            <div class="upload-content">
-                <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+            <!-- Default Upload State -->
+            <div class="upload-content" id="upload-content-default">
+                <i class="fa-solid fa-cloud-arrow-up upload-icon" id="upload-icon"></i>
                 <h3 id="upload-text">Drag & Drop your resume here</h3>
-                <p>Supported formats: PDF, DOCX (Max 5MB)</p>
-                <button class="btn btn-outline" style="pointer-events: none;">Browse Files</button>
+                <p id="upload-subtext">Supported formats: PDF, DOCX (Max 5MB)</p>
+                <button class="btn btn-outline" onclick="document.getElementById('file-input').click()">Browse
+                    Files</button>
             </div>
+
+            <!-- Success / Scanning State -->
+            <div class="upload-success-msg hidden" id="upload-success-msg">
+                <i class="fa-solid fa-file-circle-check success-icon"></i>
+                <h3 id="uploaded-filename">Resume_Analysis.pdf</h3>
+                <div class="scan-progress-container">
+                    <div class="scan-progress-bar">
+                        <div class="scan-progress-fill" id="scan-progress-fill"></div>
+                    </div>
+                    <span id="scan-status-text">Extracting text from document...</span>
+                </div>
+            </div>
+
             <input type="file" id="file-input" class="file-input" accept=".pdf,.doc,.docx">
         </div>
     </section>
+
+    <!-- Page Loading Overlay -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <div class="loader-text">
+                <h3>Preparing Your Analysis</h3>
+                <p>Generating personalized insights...</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Modals -->
     <div class="modal-overlay" id="auth-modal">

@@ -340,8 +340,21 @@ document.addEventListener('DOMContentLoaded', () => {
             scale: 1.02
         });
     }
-
-    // File Upload Drag & Drop Configuration
+ 
+     // Feature Cards Mouse Tracking (for glow effect)
+     const featureCards = document.querySelectorAll('.feature-card');
+     featureCards.forEach(card => {
+         card.addEventListener('mousemove', (e) => {
+             const rect = card.getBoundingClientRect();
+             const x = e.clientX - rect.left;
+             const y = e.clientY - rect.top;
+             
+             card.style.setProperty('--mouse-x', `${x}px`);
+             card.style.setProperty('--mouse-y', `${y}px`);
+         });
+     });
+ 
+     // File Upload Drag & Drop Configuration
     const uploadBox = document.getElementById('upload-box');
     const fileInput = document.getElementById('file-input');
     const uploadContentDefault = document.getElementById('upload-content-default');
@@ -459,12 +472,54 @@ document.addEventListener('DOMContentLoaded', () => {
                     scanStatusText.style.color = "#27c93f";
                 }
 
-                // Reset after showing completion for a few seconds
+                // Show Page Transition Overlay after a short delay
                 setTimeout(() => {
-                    resetUploadArea();
-                }, 4000);
+                    const pageLoader = document.getElementById('page-loader');
+                    if (pageLoader) pageLoader.classList.add('active');
+                    
+                    // Redirect after transition animation
+                    setTimeout(() => {
+                        window.location.href = 'results.html';
+                    }, 2000); 
+                }, 1000);
             }
         }, 300);
+    }
+
+    // Try Demo Logic
+    const btnDemo = document.getElementById('btn-demo');
+    if (btnDemo) {
+        btnDemo.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Scroll to upload section
+            const uploadSection = document.getElementById('upload');
+            if (uploadSection) {
+                const targetPosition = uploadSection.getBoundingClientRect().top + window.scrollY - 100;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Simulate demo upload after short scroll delay
+            setTimeout(() => {
+                const fileName = "Demo_Resume_Sample.pdf";
+                
+                // Transform UI
+                if (uploadedFilename) uploadedFilename.innerText = fileName;
+                if (uploadContentDefault) uploadContentDefault.style.opacity = '0';
+                
+                setTimeout(() => {
+                    if (uploadSuccessMsg) uploadSuccessMsg.classList.remove('hidden');
+                    simulateScanProgress();
+                }, 400);
+
+                // Disable UI
+                fileInput.disabled = true;
+                uploadBox.style.pointerEvents = 'none';
+            }, 800);
+        });
     }
 
     function resetUploadArea() {
