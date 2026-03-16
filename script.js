@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Modals Logic
+    // Modals Logic — only activate if modal elements are in the DOM
     const authModal = document.getElementById('auth-modal');
     const modalClose = document.getElementById('modal-close');
     const loginForm = document.getElementById('login-form');
@@ -47,13 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchToLogin = document.getElementById('switch-to-login');
 
     const openModal = (type) => {
+        if (!authModal) return;
         authModal.classList.add('active');
         if (type === 'login') {
-            loginForm.classList.remove('hidden');
-            signupForm.classList.add('hidden');
+            if (loginForm) loginForm.classList.remove('hidden');
+            if (signupForm) signupForm.classList.add('hidden');
         } else {
-            signupForm.classList.remove('hidden');
-            loginForm.classList.add('hidden');
+            if (signupForm) signupForm.classList.remove('hidden');
+            if (loginForm) loginForm.classList.add('hidden');
         }
         // close mobile menu if open
         navMenu.classList.remove('active');
@@ -62,28 +63,39 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeModal = () => {
-        authModal.classList.remove('active');
+        if (authModal) authModal.classList.remove('active');
     };
 
-    navLoginBtn.addEventListener('click', () => openModal('login'));
-    navSignupBtn.addEventListener('click', () => openModal('signup'));
+    // These buttons now link to login.html — only attach modal listeners if they are actual buttons
+    if (navLoginBtn && navLoginBtn.tagName === 'BUTTON') {
+        navLoginBtn.addEventListener('click', () => openModal('login'));
+    }
+    if (navSignupBtn && navSignupBtn.tagName === 'BUTTON') {
+        navSignupBtn.addEventListener('click', () => openModal('signup'));
+    }
 
-    switchToSignup.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('signup');
-    });
+    if (switchToSignup) {
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('signup');
+        });
+    }
 
-    switchToLogin.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('login');
-    });
+    if (switchToLogin) {
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('login');
+        });
+    }
 
-    modalClose.addEventListener('click', closeModal);
-    authModal.addEventListener('click', (e) => {
-        if (e.target === authModal) {
-            closeModal();
-        }
-    });
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (authModal) {
+        authModal.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                closeModal();
+            }
+        });
+    }
 
     // User Session State Management
     const navAuthButtons = document.getElementById('nav-auth-buttons');
@@ -91,47 +103,83 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentUserName = document.getElementById('current-user-name');
     const navLogoutBtn = document.getElementById('nav-logout-btn');
 
-    const handleLoginSuccess = (name) => {
-        navAuthButtons.style.display = 'none';
-        navUserProfile.classList.remove('hidden');
-        currentUserName.innerText = name || "User";
+    const handleLoginSuccess = (user) => {
+        if (navAuthButtons) navAuthButtons.style.display = 'none';
+        if (navUserProfile) navUserProfile.classList.remove('hidden');
+        if (currentUserName) currentUserName.innerText = user.name || "User";
     };
 
-    navLogoutBtn.addEventListener('click', () => {
-        navUserProfile.classList.add('hidden');
-        navAuthButtons.style.display = 'flex';
-    });
+    const checkSession = () => {
+        const userJson = localStorage.getItem('rv_currentUser');
+        if (userJson) {
+            const user = JSON.parse(userJson);
+            handleLoginSuccess(user);
+            return user;
+        }
+        return null;
+    };
+
+    // Initialize session
+    checkSession();
+
+    if (navLogoutBtn) {
+        navLogoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('rv_currentUser');
+            if (navUserProfile) navUserProfile.classList.add('hidden');
+            if (navAuthButtons) navAuthButtons.style.display = 'flex';
+            window.location.reload(); // Refresh to reset state
+        });
+    }
 
     // Form Submission Logic
     const handleFormSubmit = (formId, btnText, successText) => {
-        const form = document.querySelector(`#${formId} form`);
+        const formContainer = document.getElementById(formId);
+        const form = formContainer ? formContainer.querySelector('form') : null;
         if (!form) return;
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const submitBtn = form.querySelector('button[type="submit"]');
 
-            // Extract mock name if signup form
-            let mockName = "User";
-            if (formId === 'signup-form') {
-                const nameInput = document.getElementById('signup-name');
-                if (nameInput) mockName = nameInput.value.split(' ')[0];
-            } else if (formId === 'login-form') {
-                const emailInput = document.getElementById('login-email');
-                if (emailInput) {
-                    mockName = emailInput.value.split('@')[0];
-                    // Capitalize first letter
-                    mockName = mockName.charAt(0).toUpperCase() + mockName.slice(1);
-                }
-            }
+            // Extract data
+            const emailInput = form.querySelector('input[type="email"]');
+            const passwordInput = form.querySelector('input[type="password"]');
+            const nameInput = form.querySelector('input[type="text"]'); // Only in signup
+            
+            const email = emailInput ? emailInput.value : '';
+            const password = passwordInput ? passwordInput.value : '';
+            const name = nameInput ? nameInput.value : '';
 
             // Mock Loading State
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.7';
 
-            // Simulate API Call
             setTimeout(() => {
+                const users = JSON.parse(localStorage.getItem('rv_users') || '[]');
+
+                if (formId === 'signup-form') {
+                    if (users.find(u => u.email === email)) {
+                        alert('Account already exists with this email.');
+                        submitBtn.innerHTML = btnText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        return;
+                    }
+                    users.push({ name, email, password });
+                    localStorage.setItem('rv_users', JSON.stringify(users));
+                } else if (formId === 'login-form') {
+                    const user = users.find(u => u.email === email && u.password === password);
+                    if (!user) {
+                        alert('Invalid email or account does not exist.');
+                        submitBtn.innerHTML = btnText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        return;
+                    }
+                    localStorage.setItem('rv_currentUser', JSON.stringify({ name: user.name, email: user.email }));
+                }
+
                 // Success State
                 submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${successText}`;
                 submitBtn.style.background = '#27c93f';
@@ -139,12 +187,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.style.borderColor = '#27c93f';
 
                 // Setup Logged-in Navbar State
-                handleLoginSuccess(mockName);
+                const currentUser = JSON.parse(localStorage.getItem('rv_currentUser') || '{}');
+                handleLoginSuccess(currentUser);
 
                 // Close Modal
                 setTimeout(() => {
                     closeModal();
-                    // Reset form back to default silently after closing
+                    // Reset form back to default
                     setTimeout(() => {
                         form.reset();
                         submitBtn.innerHTML = btnText;
@@ -152,6 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         submitBtn.style.opacity = '1';
                         submitBtn.style.background = '';
                         submitBtn.style.borderColor = '';
+                        
+                        // If it was a signup, maybe shift to login or just refresh?
+                        if (formId === 'signup-form') {
+                             // Switch to login modal
+                             openModal('login');
+                        }
                     }, 400);
                 }, 1000);
             }, 1000);
@@ -406,6 +461,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function handleFiles(files) {
+        // Restriction: Must be logged in to upload
+        const user = localStorage.getItem('rv_currentUser');
+        if (!user) {
+            if (uploadText) {
+                uploadText.innerText = "Please Login to Upload";
+                uploadText.style.color = "#ffdd57";
+            }
+            if (uploadIcon) {
+                uploadIcon.className = "fa-solid fa-lock upload-icon";
+                uploadIcon.style.color = "#ffdd57";
+            }
+            // Optional: Scroll to top or open login
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+            return;
+        }
+
         if (files.length > 0) {
             const fileName = files[0].name;
 
@@ -435,17 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Transform UI to "success / loading" state
-            if (uploadedFilename) uploadedFilename.innerText = fileName;
-            if (uploadContentDefault) uploadContentDefault.style.opacity = '0';
-
-            setTimeout(() => {
-                if (uploadSuccessMsg) uploadSuccessMsg.classList.remove('hidden');
-                simulateScanProgress();
-            }, 300);
-
-            // Disable further file inputs temporarily
-            fileInput.disabled = true;
-            uploadBox.style.pointerEvents = 'none';
+            startAnalysis(fileName);
         }
     }
 
@@ -486,7 +549,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    // Try Demo Logic
     const btnDemo = document.getElementById('btn-demo');
     if (btnDemo) {
         btnDemo.addEventListener('click', (e) => {
@@ -506,20 +568,26 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const fileName = "Demo_Resume_Sample.pdf";
                 
-                // Transform UI
-                if (uploadedFilename) uploadedFilename.innerText = fileName;
-                if (uploadContentDefault) uploadContentDefault.style.opacity = '0';
-                
-                setTimeout(() => {
-                    if (uploadSuccessMsg) uploadSuccessMsg.classList.remove('hidden');
-                    simulateScanProgress();
-                }, 400);
-
-                // Disable UI
-                fileInput.disabled = true;
-                uploadBox.style.pointerEvents = 'none';
+                // Demo bypasses login check - directly call UI transformation
+                startAnalysis(fileName);
             }, 800);
         });
+    }
+
+    // Helper to start the analysis UI (shared by Demo and Real Upload)
+    function startAnalysis(fileName) {
+        // Transform UI
+        if (uploadedFilename) uploadedFilename.innerText = fileName;
+        if (uploadContentDefault) uploadContentDefault.style.opacity = '0';
+        
+        setTimeout(() => {
+            if (uploadSuccessMsg) uploadSuccessMsg.classList.remove('hidden');
+            simulateScanProgress();
+        }, 400);
+
+        // Disable UI
+        fileInput.disabled = true;
+        uploadBox.style.pointerEvents = 'none';
     }
 
     function resetUploadArea() {

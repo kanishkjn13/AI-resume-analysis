@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div class="particles" id="particles"></div>
     <!-- Sticky Navbar -->
     <nav class="navbar" id="navbar">
         <div class="nav-content">
@@ -32,8 +33,8 @@
                     <li><a href="#upload">Upload</a></li>
                 </ul>
                 <div class="nav-auth" id="nav-auth-buttons">
-                    <button class="btn btn-outline nav-login-btn" id="nav-login-btn">Log In</button>
-                    <button class="btn btn-primary nav-signup-btn" id="nav-signup-btn">Sign Up</button>
+                    <a href="login.html" class="btn btn-outline nav-login-btn">Log In</a>
+                    <a href="login.html" class="btn btn-primary nav-signup-btn">Sign Up</a>
                 </div>
                 <!-- Logged In State (Hidden initially) -->
                 <div class="auth-user-profile hidden" id="nav-user-profile">
@@ -46,7 +47,6 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="particles" id="particles"></div>
         <div class="hero-container">
             <div class="hero-content gravity-item" id="hero-heading-container">
                 <h1 class="hero-title gravity-item">Upgrade Your Resume with AI</h1>
@@ -249,6 +249,12 @@
                         <input type="password" id="login-password" placeholder="Enter your password" required>
                     </div>
                     <button type="submit" class="btn btn-primary auth-btn">Login</button>
+                    <div class="divider"><span>or continue with</span></div>
+                    <div class="social-auth">
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google"></button>
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="LinkedIn"></button>
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub"></button>
+                    </div>
                 </form>
                 <p class="auth-switch">Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
             </div>
@@ -275,6 +281,12 @@
                         <input type="password" id="signup-confirm" placeholder="Confirm your password" required>
                     </div>
                     <button type="submit" class="btn btn-primary auth-btn">Sign Up</button>
+                    <div class="divider"><span>or continue with</span></div>
+                    <div class="social-auth">
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google"></button>
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="LinkedIn"></button>
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub"></button>
+                    </div>
                 </form>
                 <p class="auth-switch">Already have an account? <a href="#" id="switch-to-login">Log in</a></p>
             </div>

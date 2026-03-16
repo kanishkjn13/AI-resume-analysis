@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Resume Vision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="glow-container">
+        <div class="glow-sphere"></div>
+    </div>
+
+    <div class="login-page-container">
+        <div class="login-card">
+            <div class="login-left">
+                <div class="brand">
+                    <img src="assets/logo.png" alt="Logo">
+                    <span>Resume Vision AI</span>
+                </div>
+                <div class="welcome-text">
+                    <h1>Unlock Your Potential.</h1>
+                    <p>Join thousands of professionals using AI to land their dream jobs.</p>
+                </div>
+                <div class="feature-pills">
+                    <span class="pill"><i class="fa-solid fa-bolt"></i> ATS Scanner</span>
+                    <span class="pill"><i class="fa-solid fa-route"></i> Career Roadmaps</span>
+                    <span class="pill"><i class="fa-solid fa-pen-fancy"></i> AI Rewriter</span>
+                </div>
+            </div>
+
+            <div class="login-right">
+                <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Back to site</a>
+                
+                <div class="form-wrapper" id="login-wrapper">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Enter your credentials to access your dashboard</p>
+                    </div>
+
+                    <form id="standalone-login-form">
+                        <div class="input-field">
+                            <label>Email Address</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-regular fa-envelope"></i>
+                                <input type="email" placeholder="name@company.com" required>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="label-row">
+                                <label>Password</label>
+                                <a href="#">Forgot?</a>
+                            </div>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-regular fa-lock"></i>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-submit-btn">
+                            <span>Sign In</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <div class="social-auth">
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google"></button>
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="LinkedIn"></button>
+                        <button class="social-btn"><img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub"></button>
+                    </div>
+
+                    <p class="switch-form">New here? <a href="#" id="show-signup">Create an account</a></p>
+                </div>
+
+                <div class="form-wrapper hidden" id="signup-wrapper">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                        <p>Get started with your AI career companion</p>
+                    </div>
+
+                    <form id="standalone-signup-form">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-regular fa-user"></i>
+                                <input type="text" placeholder="John Doe" required>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Email Address</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-regular fa-envelope"></i>
+                                <input type="email" placeholder="name@company.com" required>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Password</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-regular fa-lock"></i>
+                                <input type="password" placeholder="Min. 8 characters" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-submit-btn">
+                            <span>Get Started</span>
+                            <i class="fa-solid fa-sparkles"></i>
+                        </button>
+                    </form>
+
+                    <p class="switch-form">Already have an account? <a href="#" id="show-login">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
